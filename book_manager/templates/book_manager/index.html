@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>test</h1>
+
+{%for i in book%}
+
+<h3>{{i.title}}</h3><br>
+<h3>{{i.text}}</h3><br>
+{{i.author.all}}<br>
+<a href="{% url 'add-book-like' id=i.id %}">Likes: {{i.like}}</a>
+{% endfor %}<br>
+<h4>
+    {% for i in comment%}
+   Comments -  {{i.text}}<br>
+    Comment-author {{i.author}}
+    <a href="{%url 'add-comment-like' id=i.id %}">Comment-like - {{i.likes}}</a>
+    {% endfor%}
+</h4>
+</body>
+</html>
